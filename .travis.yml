@@ -7,3 +7,8 @@ services:
 
 script:
 - echo "hello world"
+
+after_success:
+- eval $(docker login --username anand91073 --password prince.k)
+- docker build -t anand91073/travis:1 .
+- docker push anand91073/travis:1
